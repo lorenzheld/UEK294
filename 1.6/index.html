@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <script>
+        const name = prompt(`Name`);
+        const stunde = new Date().getHours();
+        let beg
+        if (stunde >= 6 && stunde < 12) {
+            beg = `Guten Morgen ${name}!`
+        } else if (stunde >= 12 && stunde < 18) {
+            beg = `Guten Tag, ${name}!`
+        } else if (stunde >= 18 && stunde < 22) {
+            beg = `Guten Abend, ${name}!`
+        } else {
+            beg = `Gute Nacht, ${name}!`
+        }
+
+        alert(beg)
+        
+    </script>
+</body>
