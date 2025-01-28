@@ -1,66 +1,163 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <link rel="stylesheet" href="./style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Spoofify</title>
-</head>
-<body>
-    <h1>Spoofify</h1>
-    <button>Top of your birthweek</button>
-    <button>Latest releases randomized</button>
-    <h1><strong>Your Speefed overview</strong></h1>
-    <p>Welcome to Spoffify, the rip-off music streaming service of ICT Module 291!</p>
+    <style>
+        .body {
+            background-color: #1ad424;
+            
+
+        }
+
+        .button-oberechts {
+            position: fixed;
+            top: 10px;
+            padding: 10px 20px;
+            background-color: #1ad424;
+            color: white;
+            border: 3px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button2     {
+            right: 20px;
+        }
+
+        .button1 {
+            right: 240px;
+        }
+
+        .footer{
+        display: flex;
+        justify-content: center; 
+        
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1; 
+        padding: 10px;
+        }
+        
+        .element::-webkit-scrollbar {
+            display: none;
+        }
+        .bilder {
+
+            
+            padding: 10px;
+            justify-content: space-between;
+
+
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 220px);
+            list-style: none;
+            gap: 20px; /* Added spacing between grid items */
+            padding: 0;
+        }
+        
+        .grid img {
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+
+
+
+    </style>
+
+
+    <script>
+
+      const defaultImage = "https://loremflickr.com/480/480/cd,album,cover?random=1";
+
+function onAdd() {
+    const grid = document.querySelector('.grid');
     
-    <h2>Top of your birthweek</h2>
-    <ol>
-        <li><strong>Mann Beisst Hund</strong> by OG Keemo</li>
-        <li><strong>Ballonerism</strong> by Mac Miller</li>
-        <li><strong>Globi Schampus & Heartbreak</strong> by Eieraffe am Albis</li>
-        <li><strong>Believe in Gerda</strong> by GERDA</li>
-        <li><strong>bis einer weint</strong> by BIBIZA</li>
-    </ol>
+    for (let i = 0; i < 3; i++) {
+        const newItem = document.createElement('li');
+        newItem.innerHTML = `
+            <img src="${defaultImage}" 
+                 alt="" 
+                 width="200" 
+                 height="200">
+        `;
+        grid.appendChild(newItem);
+    }
+}
 
-    <h2>Latest releases randomized</h2>
-    <div>
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=1" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=2" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=3" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=4" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=5" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
-        <img 
-            src="https://loremflickr.com/480/480/cd,album,cover?random=6" 
-            alt="Mann Beisst Hund"
-            width="20%"
-            height="20%"
-        />
+function onRemove() {
+    const gridItems = document.querySelectorAll('.grid li');
+    const itemsToRemove = 3;
+    
+    if (gridItems.length >= itemsToRemove) {
+        for (let i = 0; i < itemsToRemove; i++) {
+            gridItems[i].remove();
+        }           
+    }
+}
 
-    </div>
+
+
+// Initialize event listeners when page loads
+window.onload = function() {
+    document.getElementById('add3').onclick = onAdd;
+    document.getElementById('rem3').onclick = onRemove;
+};
+
+    </script>
+</head>
+<body class="body"> 
+        
+    <h1>Spoofify</h1>
+
+    <br>
+    <br>
+    <br>
+        <h1>Your spoofed overview</h1>
+        <button class="button-oberechts button1">Top of your birthweek</button>
+        <button class="button-oberechts button2">Latest releases randomized</button>
+        <p>Welcome to spoofify, the rip-off music streaming service of ICT Module 291!</p>
+        
+        <h2>Top of your birthweek</h2>
+        <ol>
+            <li> Jump by Kris Ross</li>
+            <li> My Lovin </li>
+            <li> Bohemian Rhapsody </li>
+            <li> Save The Best For Last </li>
+            <li> Live and Learn </li>
+        </ol>
+        
+        <h2>Latest releases randomized</h2>
+
+        <input type="button" value="Add three more" id="add3" onclick="onAdd()">
+        <input type="button" value="Remove first three" id="rem3" onclick="onRemove()">
+
+
+        <ul class="grid">
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+            <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+        </ul>
+  
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <footer class="footer">
+            <p> 2023 Spooky Example, Inc.</p>
+        </footer>
+
+    
 </body>
 </html>
