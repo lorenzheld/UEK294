@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let btnInc = document.getElementById("btnInc");
+            let btnOutput = document.querySelector("h1");
+            let counter = 0
+            btnInc.onclick = () => {
+                counter++;
+                btnOutput.innerText = counter;
+            }
+
+            let btnInc1 = document.getElementById("btnInc1");
+            let btnOutput1 = document.getElementById("b1");
+            let counter1 = 0
+            btnInc1.onclick = () => {
+                counter1 = counter1 + 2;
+                btnOutput1.innerText = counter1;
+            }
+
+            const div = document.querySelector('.div');
+            const ball = document.querySelector('.ball');
+
+            div.addEventListener('click', (event) => {
+                const x = event.offsetX - 25; 
+                const y = event.offsetY - 25;
+                ball.style.left = x + 'px';
+                ball.style.top = y + 'px';
+            });
+
+            
+
+        })
+    </script>
+
+    <style>
+        .div{
+            background-color: green;
+            height: 400px;
+            width: 800px;
+            position: relative;
+        }
+
+        .ball{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>0</h1>
+    <input type="button" id="btnInc" value="+1">
+
+    <h1 id="b1">0</h1>
+    <input type="button" id="btnInc1" value="+2">
+
+    <div class="div">
+        <img class="ball" src="https://moodle.zli.ch/pluginfile.php/228278/mod_assign/introattachment/0/soccer-ball-svgrepo-com.svg?forcedownload=1" alt="fussball">
+    </div>
+
+</body>

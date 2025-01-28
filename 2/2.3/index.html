@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .large {
+            font-size: 2em;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Platzhalter</h1>
+    <p>Lorem Ipsum</p>
+    <ul>
+        <li>penis</li>
+        <li>Berkan</li>
+        <li>Riart</li>
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            document.body.style.backgroundColor = '#0000ff';
+            document.querySelector("h1").innerText = "Lorenz Held";
+            document.querySelector("p").classList.add("large");
+
+            const ul = document.querySelector("ul");
+            let neuesLi = document.createElement("li");
+            neuesLi.textContent = "Dritter Eintrag";
+            ul.appendChild(neuesLi);
+
+            document.querySelector("ul li:nth-child(2)").remove();
+
+            document.querySelector("h1").insertAdjacentHTML("afterend", '<img src="https://media.xxxlutz.com/i/xxxlutz/PIvfevco6UTNU69s-YaIUFqA/?fmt=auto&%24hq%24=&w=1200">');
+
+            const items = ["Element 1", "Element 2", "Element 3", "Element 4", "Element 5", 
+                       "Element 6", "Element 7", "Element 8", "Element 9", "Element 10"];
+        
+            items.forEach(item => {
+                const liElement = document.createElement("li");
+                liElement.textContent = item; 
+                document.querySelector("ul").appendChild(liElement); 
+            });
+
+
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF'; // Hex-Zahlen
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            document.body.style.backgroundColor = getRandomColor();
+
+
+
+		});
+    </script>
+</body>
