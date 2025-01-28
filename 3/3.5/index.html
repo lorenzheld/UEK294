@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .container {
+            display: grid;
+            column-gap: 50px;
+            grid-template-columns: repeat(3, auto);
+
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="container">
+        <div id="B1">
+            <img src="cup.png" alt="cup">
+        </div>
+        <div id="B2">
+            <img src="cup.png" alt="cup">
+        </div>
+        <div id="B3">
+            <img src="cup.png" alt="cup">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let randZ = Math.floor(Math.random() * 3) + 1;
+            let B1 = document.getElementById("B1");
+            let B2 = document.getElementById("B2");
+            let B3 = document.getElementById("B3");
+            console.log(randZ);
+
+            const winnerImage = (element) => {
+                const img = element.querySelector("img");
+                img.src = "cup-open-ball.png";
+                console.log("gewonnen")
+            }
+
+            const lost = (element) => {
+                const img = element.querySelector("img");
+                img.src = "cup-open.png"
+            }
+
+            const clickHandler = (element, index) => {
+                element.onclick = () => {
+                    if (randZ === index) {
+                        winnerImage(element);
+                    } else {
+                        lost(element);
+                        console.log("Leider nicht gewonnen!");
+                    }
+                };
+            }
+
+            clickHandler(document.getElementById("B1"), 1);
+            clickHandler(document.getElementById("B2"), 2);
+            clickHandler(document.getElementById("B3"), 3);
+
+        
+        })
+
+    </script>
+
+</body>
