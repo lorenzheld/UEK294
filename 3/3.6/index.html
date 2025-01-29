@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+            grid-template-rows: repeat(5, 1fr); /* 5 Zeilen */
+            gap: 10px; /* Abstand zwischen den Zellen */
+            width: 100%;
+            height: 100vh; /* Volle Bildschirmhöhe */
+          }
+          
+          .item {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+          </style>
+
+          <script>
+            function generateUniqueRandomNumbers(min, max, count) {
+                let numbers = new Set();
+                while (numbers.size < count) {
+                    let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+                    numbers.add(rand);
+                }
+                return Array.from(numbers); 
+            }
+
+            console.log(generateUniqueRandomNumbers(1, 10, 4));
+
+            function handleClick(element) {
+                console.log("bild gedrückt")
+            }
+            
+            const list = document.getElementsByClassName("div")
+            
+            
+
+
+          </script>
+
+    </head>
+    <body>
+        <h1>
+            Memory
+        </h1>
+
+        <div class="container">
+            <div class="item" id="1"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="2"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="3"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="4"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="5"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="6"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="7"><img src="rs.jpg" alt="rückseite"></div>
+            <div class="item" id="8"><img src="rs.jpg" alt="rückseite"></div>
+
+          </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM-Manipulation Lösungen</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Korrekte Selektionen
+            const ersteListenpunkte = document.querySelectorAll('ul li:first-child, ul li:nth-child(1)');
+            const roteElemente = document.querySelectorAll('.rot');
+            const klassenloseElemente = document.querySelectorAll('li:not([class]), li:not(.gruen):not(.rot)');
+            const sommerListe = document.querySelector('#sommer + ul')?.children;
+            
+            // DOM-Manipulationen
+            document.querySelectorAll('.rot').forEach(element => element.remove());
+            
+            const gemueseListe = document.querySelectorAll('li');
+            gemueseListe.forEach(element => {
+                if(element.textContent === 'Kürbis') {
+                    element.classList.add('orange');
+                }
+            });
+
+            const fruehlingListe = document.querySelector('#fruehling + ul');
+            if(fruehlingListe) {
+                const neuesElement = document.createElement('li');
+                neuesElement.textContent = 'Spargel';
+                fruehlingListe.appendChild(neuesElement);
+            }
+
+            // Modal-Dialog Funktionalität
+            const dialogHandler = {
+                show: element => element.style.display = 'block',
+                hide: element => element.style.display = 'none',
+                toggleVisibility: element => element.style.visibility = 
+                    element.style.visibility === 'hidden' ? 'visible' : 'hidden'
+            };
+        });
+    </script>
+    <style>
+        .rot { color: red; }
+        .gruen { color: green; }
+        .orange { color: orange; }
+        [hidden] { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Gemüse in meinem Garten</h1>
+    
+    <h2 id="winter">Winter</h2>
+    <ul>
+        <li class="rot">Rote Bete</li>
+        <li class="gruen">Feldsalat</li>
+        <li class="gruen">Winterkresse</li>
+        <li class="gruen">Winterportulak</li>
+    </ul>
+
+    <h2 id="fruehling">Frühling</h2>
+    <ul>
+        <li class="rot">Karotten</li>
+        <li class="gruen">Kopfsalat</li>
+        <li class="gruen">Spinat</li>
+    </ul>
+
+    <h2 id="sommer">Sommer</h2>
+    <ul>
+        <li class="gruen">Gurken</li>
+        <li class="gruen">Buschbohnen</li>
+        <li class="rot">Radieschen</li>
+        <li class="gruen">Zucchinie</li>
+    </ul>
+
+    <h2 id="herbst">Herbst</h2>
+    <ul>
+        <li>Steckrüben</li>
+        <li class="gruen">Rosenkohl</li>
+        <li>Kürbis</li>
+    </ul>
+</body>
+</html>

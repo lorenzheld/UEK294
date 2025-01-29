@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            let name = prompt("Wie heissen Sie?"); //Prompt mit nachricht
+            let date = new Date(); //heute datum
+            let hours = date.getHours(); //uhrzeit vom Datum
+            if(hours >11 && hours <=14) {
+                alert("Guten Mittag "+ name);
+            } else if (hours > 14 && hours < 20){
+                alert("Guten Abend "+ name);
+            } else if(hours > 6 && hours <= 11){
+                alert("Guten Morgen "+ name);
+            } else {
+                alert("Gute Nacht "+ name);
+            }
+
+            document.addEventListener("DOMContentLoaded", function() { //dieser code hier lädt code erst wenn DOM geladen ist
+                //hier kommt der Code
+            });
+
+            document.getElementById("HalliHallo") //nimmt elemente mit id hallihalo
+            document.getElementsByClassName("aa") //mit classname
+            document.getElementsByTagName("aa") //mit tag name
+            document.querySelector(".class") //wählt erstes element aus klassen mit .  id mit #   tag mit nix also "div"   
+            document.querySelectorAll(".class") //wie oben wählt aber alle elemente aus
+            document.getElementById("HalliHallo").style.backgroundColor="black"; //ändert css vom element
+            document.getElementById("h1").innerHTML = "Berkay"; //.innerHTML gibt das zurück was im html steht und wenn man dem einen wert zuweist ersetzt es das was im tag steht mit dem, ausserdem kann es html interpretieren, wenn ich <Strong>BBC</Strong> kommt hier fettgeschrieben BBC
+            document.getElementById("h1").innerText = "Berkay"; //innertext schreibt hier Berkay in das element
+            document.querySelectorAll("p").classList.add("nick") //fügt dem element eine css klasse hinzu
+            document.querySelectorAll("p").classList.remove("nick") //entfern css klasse nick
+            document.querySelectorAll("p").classList.toggle("nick") //wenn nicht vorhanden erstellt, wenn vorhanden löscht.
+            document.querySelectorAll("p").classList.contains("nick") //schaut obs hat gibt true or false zurück
+            let ball = document.querySelector('#playground img'); //abstand heisst kind von. Also hier ist img ein kind von playground
+
+            h1.insertAdjacentElement("afterend", img); // h1 wird erstellt nachdem img endet erstellt mit afterend
+            //beforebegin h1 erstellt vor img
+            
+
+
+            const ul = document.getElementById('links')
+            const li = document.createElement('li') //erstellt element mit tag li
+            const link = document.createElement('a')
+            link.href = "https: .zli.ch"
+            link.innerText = "Hallo Welt"
+            li.append(link) //fügt element link zum element li hinzu
+            ul.append(li)
+            li.remove() //entfernt element li von der seite
+
+            //parseint
+            let ballLeft = parseInt(ball.style.left, 10); //10 ist für dezimalsystem
+
+
+            ul.get(1) // gibt erstes element zurück, beginnt nicht mit 0
+
+            ul:not(selector) //in selector kommt css z.b .class. man kann ausschliessen
+
+            const element = document.querySelector("div > p + span"); //div > p → Wählt alle <p>-Elemente aus, die direkte Kinder von <div> sind. p + span → Wählt das <span>-Element aus, das direkt nach einem <p>-Element kommt.
+
+        
+            let parent = document.getElementById("container");
+            let child = document.createElement("div");
+            child.textContent = "I'm appended!";
+            parent.appendChild(child);   //fügt kind hinzu
+
+    
+            function sayHello {
+            alert("Hello, World!");
+            }
+            document.querySelector('#due').addEventListener('click', sayHello); //macht auf event click die funktion sayhello
+
+            Slice 
+            let liElements = ul.querySelectorAll("li"); 
+            let slicedLis = Array.from(liElements).slice(1, 3); // wählt index 1 bis und ohne 3 aus
+
+
+            //while loops
+            while (i < numbers.length) {
+            console.log(numbers[i]);
+            i++;
+            }
+        
+            //for loops
+            let numbers = [1, 2, 3, 4, 5];
+            for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i] * 2); 
+            }
+
+
+            //for each
+            let numbers = [1, 2, 3, 4, 5];
+            numbers.forEach((num) => {
+            console.log(num * 2);
+            });
+
+            //aufgabe 3.1 ball mit klick bewegen
+            playground.onclick = (event) => {
+                    console.log(event);
+                    let x = event.clientX -25;
+                    let y = event.clientY -25;
+                    console.log('playground clicked x'+ x + " y " + y + "client X"+ event.clientX + " clientY "+ event.clientY);
+
+                    ball.style.left = x + "px";
+                    ball.style.top = y + "px";
+
+                };
+
+
+            //parseint
+            let ballLeft = parseInt(ball.style.left, 10); //10 ist für dezimalsystem
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -108,6 +108,21 @@ window.onload = function() {
     document.getElementById('rem3').onclick = onRemove;
 };
 
+let Albumname = document.getElementsByClassName("Albumname");
+
+const clickHandler = (Element) => {
+    console.log(Element)
+}
+
+clickHandler(document.getElementsByClassName("body"))
+
+
+function showSongs() {
+
+}
+
+
+
     </script>
 </head>
 <body class="body"> 
@@ -144,6 +159,10 @@ window.onload = function() {
             <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
             <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
             <li><img src="https://loremflickr.com/480/480/cd,album,cover?random=1" alt="" width="200px" height="200px"></li>
+        </ul>
+
+        <h3>Alben Name</h3>
+        <ul class="Albumname">
         </ul>
   
 
