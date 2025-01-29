@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <style>
+        body{
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); 
+            gap: 10px; 
+            width: 200px;
+        }
+        input{
+            border-radius: 2px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h1>Mein Freundebuch</h1>
+
+    <section id="freunde">
+
+    </section>
+
+    <h2>Neuer Freund</h2>
+
+    <form name="neuerFreund">
+        <label for="vorname">Vorname</label>
+        <input type="text" name="vorname" id="vorname">
+
+        <label for="nachname">Nachname</label>
+        <input type="text" name="nachname" id="nachname">
+
+        <label for="strasse">Strasse</label>
+        <input type="text" name="strasse" id="strasse">
+
+        <label for="PLZ">PLZ</label>
+        <input type="text" name="PLZ" id="PLZ">
+
+        <label for="Ort">Ort</label>
+        <input type="text" name="Ort" id="Ort">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="du">Per du?</label>
+        <input type="checkbox" name="du" id="du">
+
+        <label for="woher">Woher kennen wir uns?</label>
+        <select name="woher" id="woher">
+            <option value="Auswählen">Auswaehlen</option>
+            <option value="Schule">Schule</option>
+            <option value="Privat">Privat</option>
+            <option value="Geschäft">Geschaeft</option>
+        </select>
+
+        <button type="submit">Neuen Freund Hinzfuegen</button>
+
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.forms.neuerFreund;
+
+            form.addEventListener("submit", () => {
+                event.preventDefault();
+                
+                const formData = new FormData(form);
+                console.log(formData.get("vorname"))
+
+                
+
+            })
+
+        });
+    </script>
+
+</body>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* 4 Spalten */
+            gap: 10px; /* Abstand zwischen den Zellen */
+            width: 200px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Volle Höhe des Viewports */
+            background-color: #f4f4f4;
+        }
+
+        input:valid{
+            border-color: green;
+            background-color: #e6ffe6;
+        }
+
+        input:invalid{
+            border-color: red;
+            background-color: #ffe6e6;
+        }
+
+        input[type="checkbox"]:invalid {
+            outline: 2px solid red;
+        }
+
+        input[type="checkbox"]:valid {
+            outline: 2px solid green;
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+
+    <form name="form">
+        <div class="container">
+        <label for="email">Email</label>
+        <input type="email">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <label for="password2">Passwort wiederholen</label>
+        <input type="password" name="password2" id="password2">
+
+        <label for="agb">ABG akzeptieren</label>
+        <input type="checkbox" name="agb" id="agb" required>
+
+
+        <button type="submit">submit</button>
+
+        </div>
+    </form>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.forms.form;
+            
+            form.addEventListener("submit", () => {
+                event.preventDefault();
+                console.log("Alles Korrekt");
+                
+            })
+
+            form.elements.password2.addEventListener("input", () => {
+                let password1 = form.elements.password.value;
+                let password2 = form.elements.password2.value;
+                let conformField = form.elements.password2;
+
+                if (password1 !== password2){
+                    conformField.setCustomValidity("Passwörter nicht gleich!")
+                } else {
+                    conformField.setCustomValidity("")
+                }
+            })
+
+
+
+        });
+    </script>
+</body>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+    
+</head>
+<body>
+    <form name="nameform">
+
+        <label for="name">Was ist dein Name</label>
+        <input type="text" name="name">
+
+        <button type="submit">Absenden</button>
+    </form>
+
+    <ul></ul>
+
+
+    <form name="number">
+
+        <label for="guess">Guess</label>
+        <input type="text" name="guess">
+
+        <button type="number">Absenden</button>
+
+    </form>
+
+    <ul id="guessTag"></ul>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nameform = document.forms.nameform;
+            const numberform = document.forms.number;
+            const randZ = Math.floor(Math.random() * 100);
+
+            numberform.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const guess = numberform.elements.guess.value;
+
+                
+                const nlist = document.getElementById("guessTag");
+                li = document.createElement("li");
+                
+                if (guess > randZ) {
+                    li.textContent = "tiefer";
+                } else if (guess < randZ) {
+                    li.textContent = "höher";
+                } else {
+                    li.textContent = "gewonnen!";
+                }
+                
+                nlist.appendChild(li);
+            })
+
+            nameform.addEventListener("submit", (event) => {
+                event.preventDefault(); 
+
+                
+                const name = nameform.elements.name.value;
+                const list = document.getElementsByTagName("ul")[0];
+                const li = document.createElement("li");
+
+                const stunde = new Date().getHours();
+                let beg
+                if (stunde >= 6 && stunde < 12) {
+                    beg = `Guten Morgen ${name}!`
+                } else if (stunde >= 12 && stunde < 18) {
+                    beg = `Guten Tag, ${name}!`
+                } else if (stunde >= 18 && stunde < 22) {
+                    beg = `Guten Abend, ${name}!`
+                } else {
+                    beg = `Gute Nacht, ${name}!`
+                }
+
+                li.textContent = beg;
+                list.appendChild(li);
+
+            });
+
+
+            
+
+            
+        });
+    </script>
+
+</body>
