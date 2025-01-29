@@ -5,9 +5,12 @@
         body{
             background-color: pink;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+        }
+        .newFriend{
+            flex-direction: column;
         }
         form{
             display: grid;
@@ -17,6 +20,17 @@
         }
         input{
             border-radius: 2px;
+        }
+
+        .freundK{
+            background-color: #FF9999; 
+            padding: 15px; 
+            border-radius: 10px;
+            border: 2px solid black;
+            margin: 10px 0; 
+            max-width: 250px; 
+            text-align: center;
+
         }
     </style>
 
@@ -29,53 +43,82 @@
 
     </section>
 
-    <h2>Neuer Freund</h2>
+    <div id="newFriend">
 
-    <form name="neuerFreund">
-        <label for="vorname">Vorname</label>
-        <input type="text" name="vorname" id="vorname">
+        <h2>Neuer Freund</h2>
 
-        <label for="nachname">Nachname</label>
-        <input type="text" name="nachname" id="nachname">
 
-        <label for="strasse">Strasse</label>
-        <input type="text" name="strasse" id="strasse">
+        <form name="neuerFreund">
+            <label for="vorname">Vorname</label>
+            <input type="text" name="vorname" id="vorname">
 
-        <label for="PLZ">PLZ</label>
-        <input type="text" name="PLZ" id="PLZ">
+            <label for="nachname">Nachname</label>
+            <input type="text" name="nachname" id="nachname">
 
-        <label for="Ort">Ort</label>
-        <input type="text" name="Ort" id="Ort">
+            <label for="strasse">Strasse</label>
+            <input type="text" name="strasse" id="strasse">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+            <label for="PLZ">PLZ</label>
+            <input type="text" name="PLZ" id="PLZ">
 
-        <label for="du">Per du?</label>
-        <input type="checkbox" name="du" id="du">
+            <label for="Ort">Ort</label>
+            <input type="text" name="Ort" id="Ort">
 
-        <label for="woher">Woher kennen wir uns?</label>
-        <select name="woher" id="woher">
-            <option value="Auswählen">Auswaehlen</option>
-            <option value="Schule">Schule</option>
-            <option value="Privat">Privat</option>
-            <option value="Geschäft">Geschaeft</option>
-        </select>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
 
-        <button type="submit">Neuen Freund Hinzfuegen</button>
+            <label for="du">Per du?</label>
+            <input type="checkbox" name="du" id="du">
 
-    </form>
+            <label for="woher">Woher kennen wir uns?</label>
+            <select name="woher" id="woher">
+                <option value="Auswählen">Auswaehlen</option>
+                <option value="Schule">Schule</option>
+                <option value="Privat">Privat</option>
+                <option value="Geschäft">Geschaeft</option>
+            </select>
+
+            <button type="submit">Neuen Freund Hinzfuegen</button>
+
+        </form>
+
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.forms.neuerFreund;
 
+
             form.addEventListener("submit", () => {
                 event.preventDefault();
                 
                 const formData = new FormData(form);
-                console.log(formData.get("vorname"))
+                console.log(formData.get("vorname"));
 
-                
+                const newDiv = document.createElement("div");
+
+                const h1 = document.createElement("h1");
+                const adresse1 = document.createElement("p");
+                const adresse2 = document.createElement("p");
+                const email = document.createElement("p")
+
+
+                h1.innerText = formData.get("vorname") + " " + formData.get("nachname");
+                adresse1.innerText = formData.get("strasse");
+                adresse2.innerText = formData.get("PLZ") + " " + formData.get("Ort");
+                email.innerText = formData.get("email");
+
+
+               
+                newDiv.appendChild(h1);
+                newDiv.appendChild(adresse1);
+                newDiv.appendChild(adresse2);
+                newDiv.appendChild(email);
+                newDiv.classList.add("freundK")
+
+
+                document.getElementById("freunde").appendChild(newDiv);
+
 
             })
 
