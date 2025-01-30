@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const form = document.forms.form;
+            const plz = form.plz;
+            const ort = "";
+            const p = document.getElementById("weather");
+
+            async function getCity(ort, temp) {
+
+                let zips;
+                fetch('./places.json')
+                    .then((res) => res.json())
+                    .then((data) => {
+                        zips = data;
+                        ort.value = "";
+                        zips.forEach(element => {
+                            if (element.zipcode == plz.value) {
+                                ort = element.place;
+                                console.log(ort);
+                                console.log(ort + " " + temp);
+                                p.innerText = "In " + ort + " ist es " + temp + "°C";
+                            }
+                        
+                        });
+                    });
+
+
+            }
+
+
+            plz.addEventListener("input", () => {
+                if (plz.value.length == 4) {
+                    console.log(plz.value)
+                    fetch("https://corsproxy.io/?url=https://app-prod-ws.meteoswiss-app.ch/v1/plzDetail?plz=" + plz.value + "00")
+                        .then(response => response.json())
+                        .then(data => {
+                            weather = data;
+                            const temp = weather.currentWeather.temperature;
+                            getCity(ort, temp);
+                            
+                        });
+
+                }
+
+
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <form id="form">
+        <label for="plz">PLZ</label>
+        <input type="text" name="plz" id="plz">
+    </form>
+
+
+    <p id="weather"></p>
+
+</body>
