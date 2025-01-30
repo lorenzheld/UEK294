@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const url = "https://jsonplaceholder.typicode.com/posts/";
+
+            async function loadPost() {
+                const result = await fetch(url);
+                const post = await result.json();
+
+                const div = document.getElementById("posts");
+
+                div.innerHTML = ""
+
+                post.forEach(p => {
+
+                    const postElement = document.createElement("div");
+                    const title = document.createElement("h3");
+                    const body = document.createElement("p");
+
+                    title.innerText = p.title;
+                    body.innerText = p.body;
+
+                    postElement.appendChild(title);
+                    postElement.appendChild(body);
+
+
+                    div.appendChild(postElement);
+                });
+            }
+
+            let button = document.getElementById("button");
+            button.addEventListener("click", () => {
+                loadPost();
+            })
+        });
+    </script>
+
+</head>
+
+<body>
+    <button type="button" id="button">Laden</button>
+    <h1>Blog</h1>
+    <div id="posts"></div>
+
+
+
+</body>
