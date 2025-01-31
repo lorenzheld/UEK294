@@ -1,0 +1,137 @@
+/* Allgemeine Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Formular-Styling */
+#newTodo {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="checkbox"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Container für die To-Do-Liste */
+#TodoList {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Einzelne Task-Elemente */
+.todoDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.todoDiv:hover {
+    transform: scale(1.02);
+}
+
+h3 {
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+p {
+    font-size: 14px;
+    color: gray;
+}
+
+/* Buttons */
+button {
+    margin-left: 5px;
+}
+
+.editbtn {
+    background: #007bff;
+    color: white;
+}
+
+.editbtn:hover {
+    background: #0056b3;
+}
+
+.deletebtn {
+    background: #dc3545;
+    color: white;
+}
+
+.deletebtn:hover {
+    background: #a71d2a;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* Einheitliche Position von Edit- und Submit-Button */
+.todoDiv button.editbtn, .todoDiv button.submitbtn {
+    position: relative;
+    order: 1;
+}
+
+/* Einheitliche Position und Größe für Buttons */
+.todoDiv button.editbtn, .todoDiv button.submitbtn {
+    position: relative;
+    min-width: 70px; /* Einheitliche Breite für Buttons */
+    height: 40px;    /* Einheitliche Höhe für Buttons */
+    text-align: center;
+    order: 1;        /* Reihenfolge bleibt gleich */
+    flex-shrink: 0;  /* Verhindert, dass Buttons schrumpfen */
+}
